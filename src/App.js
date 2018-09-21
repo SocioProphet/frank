@@ -5,7 +5,7 @@ import Fire from './fire';
 
 class App extends Component {
   state = {
-    user: null
+    user: 1
   }
 
   render() {
