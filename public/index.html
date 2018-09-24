@@ -5,10 +5,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#000000">
-  
+
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+
+  <!-- material ui-->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
   <title>React App</title>
+
+  <style>
+    .splash-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .splash-center div {
+      flex: 1;
+      width: 100%;
+      max-width: 400px;
+    }
+  </style>
 </head>
 
 <body>
@@ -16,9 +32,9 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <div id="root">
-    <p class="text-center">
-      <img style="max-width: 400px" src="Assets/homeFrank.png" />
-    </p>
+    <div class="splash-center">
+      <img src="Assets/homeFrank.png" />
+    </div>
   </div>
 </body>
 

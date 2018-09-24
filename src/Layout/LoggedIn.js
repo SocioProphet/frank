@@ -17,15 +17,15 @@ import LocationOnIcon from "@material-ui/icons/LocationOn";
 
 const styles = theme => ({
   root: {
-    textAlign: "center",
-    paddingTop: theme.spacing.unit * 20
+    textAlign: "center"
   },
 
   bottom: {
     width: "100%",
     position: "fixed",
     bottom: 0,
-    left: 0
+    left: 0,
+    zIndex: "500"
   }
 });
 
