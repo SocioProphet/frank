@@ -11,13 +11,14 @@ import withRoot from "../withRoot";
 
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import RestoreIcon from "@material-ui/icons/Restore";
+import SettingsIcon from "@material-ui/icons/Settings";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 
 const styles = theme => ({
   root: {
-    textAlign: "center"
+    textAlign: "center",
+    paddingBottom: 50
   },
 
   bottom: {
@@ -61,7 +62,7 @@ class Layout extends Component {
                 exact
                 to="/"
                 label="Map"
-                icon={<RestoreIcon />}
+                icon={<LocationOnIcon />}
               />
               <BottomNavigationAction
                 component={Link}
@@ -73,7 +74,7 @@ class Layout extends Component {
                 component={Link}
                 to="/settings"
                 label="Settings"
-                icon={<LocationOnIcon />}
+                icon={<SettingsIcon />}
               />
             </BottomNavigation>
           </Fragment>

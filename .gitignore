@@ -11,6 +11,7 @@
 
 # firebase
 /functions
+/.firebase
 
 # misc
 .DS_Store
