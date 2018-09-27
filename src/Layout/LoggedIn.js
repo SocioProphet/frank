@@ -59,16 +59,16 @@ class Layout extends Component {
             >
               <BottomNavigationAction
                 component={Link}
-                exact
-                to="/"
-                label="Map"
-                icon={<LocationOnIcon />}
-              />
-              <BottomNavigationAction
-                component={Link}
                 to="/stamps"
                 label="Stamps"
                 icon={<FavoriteIcon />}
+              />
+              <BottomNavigationAction
+                component={Link}
+                exact="true"
+                to="/"
+                label="Map"
+                icon={<LocationOnIcon />}
               />
               <BottomNavigationAction
                 component={Link}
