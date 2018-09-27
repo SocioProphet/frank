@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from "react";
 import PropTypes from "prop-types";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
 import MapView from "../Containers/MapView";
 import Settings from "../Containers/Settings";
@@ -45,40 +45,41 @@ class Layout extends Component {
     return (
       <div className={classes.root}>
         <main>{this.props.children}</main>
-        <Router>
-          <Fragment>
-            <Route exact path="/" component={MapView} />
-            <Route path="/stamps" component={Stamps} />
-            <Route path="/settings" component={Settings} />
+        <Fragment>
+          <Route exact path="/" component={MapView} />
+          <Route path="/stamps" component={Stamps} />
+          <Route path="/settings" component={Settings} />
 
-            <BottomNavigation
-              value={this.state.value}
-              onChange={this.handleChange}
-              showLabels
-              className={classes.bottom}
-            >
-              <BottomNavigationAction
-                component={Link}
-                to="/stamps"
-                label="Stamps"
-                icon={<FavoriteIcon />}
-              />
-              <BottomNavigationAction
-                component={Link}
-                exact="true"
-                to="/"
-                label="Map"
-                icon={<LocationOnIcon />}
-              />
-              <BottomNavigationAction
-                component={Link}
-                to="/settings"
-                label="Settings"
-                icon={<SettingsIcon />}
-              />
-            </BottomNavigation>
-          </Fragment>
-        </Router>
+          <BottomNavigation
+            value={this.props.location.pathname}
+            onChange={this.handleChange}
+            showLabels
+            className={classes.bottom}
+          >
+            <BottomNavigationAction
+              component={Link}
+              to="/stamps"
+              value="/stamps"
+              label="Stamps"
+              icon={<FavoriteIcon />}
+            />
+            <BottomNavigationAction
+              component={Link}
+              exact="true"
+              to="/"
+              value="/"
+              label="Map"
+              icon={<LocationOnIcon />}
+            />
+            <BottomNavigationAction
+              component={Link}
+              to="/settings"
+              value="/settings"
+              label="Settings"
+              icon={<SettingsIcon />}
+            />
+          </BottomNavigation>
+        </Fragment>
       </div>
     );
   }
