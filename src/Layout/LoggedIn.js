@@ -5,6 +5,7 @@ import { Route, Link } from "react-router-dom";
 import MapView from "../Containers/MapView";
 import Settings from "../Containers/Settings";
 import Stamps from "../Containers/Stamps";
+import Places from "../Containers/Places";
 
 import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
@@ -49,6 +50,7 @@ class Layout extends Component {
           <Route exact path="/" component={MapView} />
           <Route path="/stamps" component={Stamps} />
           <Route path="/settings" component={Settings} />
+          <Route path="/places" component={Places} />
 
           <BottomNavigation
             value={this.props.location.pathname}
@@ -77,6 +79,14 @@ class Layout extends Component {
               value="/settings"
               label="Settings"
               icon={<SettingsIcon />}
+            />
+
+            <BottomNavigationAction
+              component={Link}
+              to="/places"
+              value="/places"
+              label="Places"
+              icon={<FavoriteIcon />}
             />
           </BottomNavigation>
         </Fragment>
