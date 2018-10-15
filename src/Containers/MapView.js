@@ -1,4 +1,6 @@
 import React, { createRef, Component } from "react";
+import firebase from "../firebase";
+
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 const MyPopupMarker = ({ children, position }) => (
