@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import firebase from "../firebase";
 
 import { withStyles } from "@material-ui/core/styles";
 import withRoot from "../withRoot";
@@ -23,7 +24,7 @@ const styles = theme => ({
   }
 });
 
-const list = [
+/*const list = [
   {
     id: 1,
     name: "Marhaba",
@@ -66,23 +67,46 @@ const list = [
       "https://icons.iconarchive.com/icons/raindropmemory/down-to-earth/128/G12-Calculator-icon.png",
     subtitle: "Brak aktualnych promocji oprócz czereśni"
   }
-];
+];*/
 
 class Stamps extends Component {
+
+  state = {
+    list: []
+  }
+
+  componentDidMount() {
+    let list = []
+
+    const db = firebase.firestore();
+    db.settings({
+      timestampsInSnapshots: true
+    });
+
+    db.collection("places").onSnapshot((querySnapshot) => {
+        querySnapshot.forEach(function(doc) {
+            list.push(doc.data()) 
+        });
+
+        this.setState({list: list})
+        list = []
+    })
+  }
+
   render() {
     const { classes } = this.props;
 
     return (
       <div className={classes.root}>
         <List>
-          {list.map((l, i) => (
+          {this.state.list.map((l, i) => (
             <ListItem button key={i}>
               <Avatar
                 alt={l.name}
-                src={l.avatar_url}
+                src={l.avatar}
                 className={classNames(classes.avatar, classes.bigAvatar)}
               />
-              <ListItemText primary={l.name} secondary={l.subtitle} />
+              <ListItemText primary={l.name} secondary={l.description} />
             </ListItem>
           ))}
         </List>
