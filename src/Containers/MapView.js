@@ -1,6 +1,4 @@
 import React, { createRef, Component } from "react";
-import firebase from "../firebase";
-
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 const MyPopupMarker = ({ children, position }) => (
@@ -29,8 +27,8 @@ class MapView extends Component {
   mapRef = createRef();
 
   componentDidMount = () => {
-    this.mapRef.current.leafletElement.locate()
-  }
+    this.mapRef.current.leafletElement.locate();
+  };
 
   handleLocationFound = e => {
     this.setState({
@@ -43,7 +41,11 @@ class MapView extends Component {
     const center = [this.state.latlng.lat, this.state.latlng.lng];
 
     const markers = [
-      { key: "marker1", position: [this.state.latlng.lat, this.state.latlng.lng], children: "You are here!" },
+      {
+        key: "marker1",
+        position: [this.state.latlng.lat, this.state.latlng.lng],
+        children: "You are here!"
+      }
     ];
 
     return (
@@ -57,8 +59,7 @@ class MapView extends Component {
           attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-          <MyMarkersList markers={markers} />
-
+        <MyMarkersList markers={markers} />
       </Map>
     );
   }
